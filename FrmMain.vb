@@ -13,7 +13,7 @@ Public Class FrmMain
     Public UnlockDrive As String = ""
     Public FilePath As String = ""
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Enabled = True
         If StLbl1 IsNot Nothing Then StLbl1.Text = "Waiting"
         If StLbl2 IsNot Nothing Then StLbl2.Text = "Waiting for USB device"
@@ -55,7 +55,7 @@ Public Class FrmMain
         CloseLockForms()
     End Sub
 
-    Private Sub LoadDrives()
+    Public Sub LoadDrives()
         If ComboBox1 IsNot Nothing Then
             ComboBox1.Items.Clear()
         End If
@@ -70,7 +70,7 @@ Public Class FrmMain
         End Try
     End Sub
 
-    Public Function Encrypt(ByVal plainText As String) As String
+    Public Function Encrypt(Optional ByVal plainText As String = "") As String
         Return plainText
     End Function
 
@@ -87,8 +87,16 @@ Public Class FrmMain
         CloseLockForms()
     End Sub
 
-    Private Sub WriteKey()
+    Public Sub WriteKey()
         ' not used in the simplified USB-any-device mode
+    End Sub
+
+    Public Sub LockSeq()
+        ' compatibility shim for older form calls
+    End Sub
+
+    Public Sub UDPSend(ByVal message As String)
+        ' compatibility shim for network sync calls
     End Sub
 
 End Class
