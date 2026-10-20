@@ -27,7 +27,7 @@ jobs:
       - name: Build project
         shell: powershell
         run: |
-          msbuild "USB Raptor.vbproj" /p:Configuration=Release /p:Platform="Any CPU"
+          msbuild "USB Raptor.vbproj" /p:Configuration=Release /p:Platform="AnyCPU"
 
       - name: Create ZIP
         shell: powershell
